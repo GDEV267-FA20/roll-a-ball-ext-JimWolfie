@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
         moving += move;
         if (moving.x <lmt || moving.z < lmt)
         {
-            rb.AddForce(moving *spd *Time.deltaTime);
+            rb.AddForce(moving *spd *Time.fixedDeltaTime);
         }
         
     }
