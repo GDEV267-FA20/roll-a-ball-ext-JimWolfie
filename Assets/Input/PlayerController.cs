@@ -6,11 +6,11 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]private int spd; //modifier so for the ball
-    [SerializeField] private float lmt = 5; //speed limit 
+    //[SerializeField] private float lmt = 5; //speed limit 
     private Rigidbody rb;
     private float x;
     private float y; //direction on which force is applied
-    private Vector3 moving;
+   // private Vector3 moving;
     
 
     // Start is called before the first frame update
@@ -27,12 +27,9 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 move = new Vector3(x, 0.0f, y);
-        moving += move;
-        if (moving.x <lmt || moving.z < lmt)
-        {
-            rb.AddForce(moving *spd *Time.fixedDeltaTime);
-        }
-        
+        //moving += move;
+        rb.AddForce(move *spd *Time.fixedDeltaTime);
+
     }
     void OnMove(InputValue movementVal)
     {
