@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]private int spd; //modifier so for the ball
+    [SerializeField]private int spd;//modifier so for the ball
+    [SerializeField]private float jumpVal;
     //[SerializeField] private float lmt = 5; //speed limit 
     private Rigidbody rb;
     private float x;
@@ -36,5 +37,11 @@ public class PlayerController : MonoBehaviour
         Vector2 movementVec = movementVal.Get<Vector2>();
         x = movementVec.x;
         y = movementVec.y;
+    }
+    void OnJump()
+    {
+        //Debug.Log("lovely day no?");
+        Vector3 jmp = new Vector3(x, jumpVal, y);
+        rb.AddForce(jmp);
     }
 }
